@@ -10,7 +10,7 @@ This is a demonstration of operational features of Hazelcast Jet:
 
 ## Data Pipeline
 
-Jet job analyses trade events to continuously compute average price and total volume of trades over various time windows.
+Jet job analyses trade events to computes moving average price and total volume of trades over various time windows.
 
 Trades are randomly generated and stored to a Kafka topic (10k trades/sec). Jet job draws the trades from Kafka and 
 processes it. Results are streamed to InfluxDB and plotted as line charts in a Grafana dashboard. 
@@ -167,7 +167,7 @@ ${JET_HOME}/bin/jet.sh submit -n TradeAnalyserVersion1 target/trade-analyser-3.0
 
 Job starts running as soon as it's deployed.
 
-The Grafana dashboard now plots the 1 second averages for 3 data lines (3 trade symbols):
+The Grafana dashboard now plots the one second moving averages for 3 data lines (3 trade symbols):
 
 ![First Job version](/img/job-version-1.png)
 
