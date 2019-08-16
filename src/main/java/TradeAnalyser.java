@@ -106,7 +106,6 @@ public class TradeAnalyser {
         Sink<Point> influxDbSink = influxDbSink(INFLUXDB_URL, INFLUXDB_USER_NAME, INFLUXDB_PASSWORD, DATABASE_NAME);
 
 //        avg1s.drainTo(influxDbSink);
-//        p.drainTo(influxDbSink, avg1m, avg1s);
         p.drainTo(influxDbSink, avg1m, avg1s, vol1s);
 
         return p;
