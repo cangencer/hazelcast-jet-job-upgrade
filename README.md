@@ -132,7 +132,7 @@ Create the dashboard by importing `grafana/trade-analysis-dashboard.json`
 
 You should see a screen similar to this:
 
-![Grafana dashboard](/img/default-screen.png)
+![Grafana dashboard](/img/grafana-default-screen.png)
 
 
 # Building the Application
