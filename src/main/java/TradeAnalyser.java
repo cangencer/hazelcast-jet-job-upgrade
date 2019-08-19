@@ -89,24 +89,24 @@ public class TradeAnalyser {
                 .map(res -> mapToPoint("avg_1s", res))
                 .setName("map-to-point");
 
-        StreamStage<Point> avg1m = grouped
-                .window(WindowDefinition.sliding(60_000, 1_000))
-                .aggregate(AggregateOperations.averagingLong(Trade::getPrice))
-                .setName("avg-1m")
-                .map(res -> mapToPoint("avg_1m", res))
-                .setName("map-to-point");
+//        StreamStage<Point> avg1m = grouped
+//                .window(WindowDefinition.sliding(60_000, 1_000))
+//                .aggregate(AggregateOperations.averagingLong(Trade::getPrice))
+//                .setName("avg-1m")
+//                .map(res -> mapToPoint("avg_1m", res))
+//                .setName("map-to-point");
 //
-        StreamStage<Point> vol1s = source
-                .window(WindowDefinition.tumbling(1_000))
-                .aggregate(AggregateOperations.summingLong(Trade::getQuantity))
-                .map(res -> mapToPoint("vol_1s", res))
-                .setName("vol-1s")
-                .setName("map-to-point");
+//        StreamStage<Point> vol1s = source
+//                .window(WindowDefinition.tumbling(1_000))
+//                .aggregate(AggregateOperations.summingLong(Trade::getQuantity))
+//                .map(res -> mapToPoint("vol_1s", res))
+//                .setName("vol-1s")
+//                .setName("map-to-point");
 
         Sink<Point> influxDbSink = influxDbSink(INFLUXDB_URL, INFLUXDB_USER_NAME, INFLUXDB_PASSWORD, DATABASE_NAME);
 
-//        avg1s.drainTo(influxDbSink);
-        p.drainTo(influxDbSink, avg1m, avg1s, vol1s);
+        avg1s.drainTo(influxDbSink);
+//        p.drainTo(influxDbSink, avg1m, avg1s, vol1s);
 
         return p;
     }
