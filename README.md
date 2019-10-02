@@ -41,7 +41,7 @@ The elasticty feature described in the previous section is entirely RAM-based, t
 Given the redundancy present in the cluster, this is sufficient to maintain a running cluster across single-node failures 
 (or multiple-node, depending on the backup count), but it doesn’t cover the case when the entire cluster must shut down.
 
-[Lossless Restart](https://docs.hazelcast.org/docs/jet/latest/manual/#configure-lossless-cluster-restart-enterprise-only) 
+[Lossless Cluster Restart](https://docs.hazelcast.org/docs/jet/latest/manual/#configure-lossless-cluster-restart-enterprise-only) 
 feature allow you to gracefully shut down the cluster at any time and have all the jobs preserved 
 consistently. After you restart the cluster, Jet automatically restores the data and resumes the jobs.
 
