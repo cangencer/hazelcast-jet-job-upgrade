@@ -4,7 +4,7 @@ This is a demonstration of operational features of Hazelcast Jet:
 
 - Job Upgrades 
 - Cluster Elasticity
-- Lossless Recovery
+- Lossless Cluster Restart
 - Management tools: Management Center and `jet.sh`
 
 
